@@ -37,6 +37,9 @@ MACD・ボリンジャーバンドなどのテクニカル指標を計算して�
   - 直近10日分のOHLC
 - `.github/workflows/update.yml`: 平日にデータ取得・分析・コミットを
   自動実行
+- `app.py`: OANDA練習(デモ)口座に接続し、本物のライブ相場・自分の
+  テクニカル指標を並べて表示しながら、実資金リスクゼロで売買練習が
+  できるStreamlitダッシュボード
 
 ## セットアップ (ローカルで実行する場合)
 
@@ -63,17 +66,75 @@ GitHub ActionsのIPをブロックしていて使えなかった、という経�
 ため、最初のワークフロー実行時にうまく取得できるか確認することを
 おすすめします。
 
+## OANDA練習口座との連携(ライブ相場での売買練習)
+
+`app.py` は [OANDA](https://www.oanda.jp/) の**練習(デモ)口座**に接続し、
+本物のライブ相場を使いながら実資金リスクゼロで売買練習ができる
+ダッシュボードです。
+
+**⚠️ 安全設計について**: `src/oanda_client.py` の接続先は練習環境
+(`api-fxpractice.oanda.com`)にハードコードしてあり、本番(実資金)環境
+には設定や環境変数を変えても接続できません。それでも、口座開設時に
+「練習口座(Demo/Practice Account)」を選んでいることは必ずご自身でも
+確認してください。
+
+### 1. OANDA練習口座を開設し、APIトークンを取得する
+
+1. https://www.oanda.jp/ (国内)または https://www.oanda.com/ (海外、
+   fxTrade Practice)で**練習(デモ)口座**を開設する(無料・実資金不要)
+2. マイページの **Manage API Access** (または類似のメニュー)から
+   **Personal Access Token** を発行する
+3. 口座番号(Account ID、例: `001-000-1234567-001`)を控えておく
+
+### 2. 認証情報を設定する
+
+**ローカルで実行する場合:**
+
+```bash
+export OANDA_API_TOKEN="発行したトークン"
+export OANDA_ACCOUNT_ID="口座番号"
+
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+**Streamlit Community Cloud にデプロイする場合:**
+
+1. https://share.streamlit.io/ でGitHubアカウント連携し、このリポジトリと
+   `app.py` を指定してデプロイする
+2. デプロイ後、アプリの **Settings → Secrets** に以下を設定する
+
+   ```toml
+   OANDA_API_TOKEN = "発行したトークン"
+   OANDA_ACCOUNT_ID = "口座番号"
+   ```
+
+### 3. 使い方
+
+- サイドバーで通貨ペア・時間足を選択
+- 5秒ごとに自動更新され、ライブのローソク足・SMA20/50・RSI(14)が表示される
+- 「買い」「売り」ボタンでOANDA練習口座に成行注文が送信される(仮想資金)
+- 「ロングを決済」「ショートを決済」ボタンでポジションを閉じられる
+- 保有ポジション・口座残高(NAV)もリアルタイムで表示される
+
+もう一度書きますが、これは投資助言ではありません。表示される価格や
+約定は本物のライブ相場に基づきますが、動いているのはOANDAの仮想資金
+です。実際の口座での売買判断は必ずご自身の責任で行ってください。
+
 ## ディレクトリ構成
 
 ```
+app.py            # OANDA練習口座を使ったライブ売買練習ダッシュボード
 src/
   config.py       # 対象通貨ペアの設定
   fetch_data.py   # 為替データの取得・正規化
   indicators.py   # テクニカル指標の計算ロジック
   analyze.py      # 指標計算・レポート生成
+  oanda_client.py # OANDA v20 REST API(練習環境専用)のラッパー
 tests/
-  test_indicators.py  # 指標計算ロジックの単体テスト
-  test_analyze.py     # 合成データによるレポート生成のテスト
+  test_indicators.py   # 指標計算ロジックの単体テスト
+  test_analyze.py      # 合成データによるレポート生成のテスト
+  test_oanda_client.py # OANDA APIクライアントのテスト(HTTPモック使用)
 data/             # 正規化済みの為替データ (Actionsが自動更新)
 reports/          # 生成されたレポート (Actionsが自動更新)
 .github/workflows/
