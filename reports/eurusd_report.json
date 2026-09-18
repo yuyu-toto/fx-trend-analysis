@@ -1,30 +1,23 @@
 {
   "pair": "EUR/USD (ユーロドル)",
-  "latest_date": "2026-09-17",
-  "price": 1.1496,
-  "change_pct": -0.364,
-  "sma20": 1.1616,
+  "latest_date": "2026-09-18",
+  "price": 1.1463,
+  "change_pct": -0.063,
+  "sma20": 1.1604,
   "sma50": 1.1537,
-  "sma200": 1.1631,
+  "sma200": 1.163,
   "trend": "レンジ/方向感なし",
-  "rsi14": 35.63,
+  "rsi14": 32.28,
   "rsi_status": "中立",
-  "macd": -0.00028,
-  "macd_signal": 0.00157,
+  "macd": -0.00135,
+  "macd_signal": 0.00096,
   "macd_status": "弱気(MACD < シグナル)",
-  "atr14": 0.0052,
-  "bollinger_upper": 1.1716,
-  "bollinger_lower": 1.1517,
+  "atr14": 0.0051,
+  "bollinger_upper": 1.1725,
+  "bollinger_lower": 1.1483,
   "period_high_60d": 1.1712,
   "period_low_60d": 1.1354,
   "recent_candles": [
-    {
-      "date": "2026-09-04",
-      "open": 1.1629,
-      "high": 1.1633,
-      "low": 1.1587,
-      "close": 1.1628
-    },
     {
       "date": "2026-09-07",
       "open": 1.1614,
@@ -83,10 +76,17 @@
     },
     {
       "date": "2026-09-17",
-      "open": 1.1473,
-      "high": 1.15,
-      "low": 1.146,
-      "close": 1.1496
+      "open": 1.1468,
+      "high": 1.1498,
+      "low": 1.1457,
+      "close": 1.147
+    },
+    {
+      "date": "2026-09-18",
+      "open": 1.148,
+      "high": 1.1496,
+      "low": 1.1461,
+      "close": 1.1463
     }
   ]
 }
