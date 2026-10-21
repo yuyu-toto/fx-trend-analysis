@@ -1,30 +1,23 @@
 {
   "pair": "USD/JPY (ドル円)",
-  "latest_date": "2026-10-20",
-  "price": 157.975,
-  "change_pct": 0.107,
-  "sma20": 157.9648,
-  "sma50": 157.6859,
-  "sma200": 158.564,
+  "latest_date": "2026-10-21",
+  "price": 157.925,
+  "change_pct": -0.377,
+  "sma20": 158.0152,
+  "sma50": 157.67,
+  "sma200": 158.5605,
   "trend": "レンジ/方向感なし",
-  "rsi14": 51.99,
+  "rsi14": 50.86,
   "rsi_status": "中立",
-  "macd": 0.18586,
-  "macd_signal": 0.16594,
+  "macd": 0.20228,
+  "macd_signal": 0.1802,
   "macd_status": "強気(MACD > シグナル)",
-  "atr14": 0.9932,
-  "bollinger_upper": 158.7442,
-  "bollinger_lower": 157.1853,
-  "period_high_60d": 163.883,
+  "atr14": 0.9708,
+  "bollinger_upper": 158.7962,
+  "bollinger_lower": 157.2342,
+  "period_high_60d": 163.733,
   "period_low_60d": 152.897,
   "recent_candles": [
-    {
-      "date": "2026-10-07",
-      "open": 158.32,
-      "high": 158.494,
-      "low": 157.878,
-      "close": 158.296
-    },
     {
       "date": "2026-10-08",
       "open": 158.102,
@@ -83,10 +76,17 @@
     },
     {
       "date": "2026-10-20",
-      "open": 158.444,
-      "high": 158.604,
-      "low": 157.837,
-      "close": 157.975
+      "open": 158.518,
+      "high": 158.592,
+      "low": 157.877,
+      "close": 158.523
+    },
+    {
+      "date": "2026-10-21",
+      "open": 158.144,
+      "high": 158.392,
+      "low": 157.832,
+      "close": 157.925
     }
   ]
 }
