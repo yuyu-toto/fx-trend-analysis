@@ -1,30 +1,23 @@
 {
   "pair": "EUR/JPY (ユーロ円)",
-  "latest_date": "2026-11-02",
-  "price": 176.801,
-  "change_pct": 0.186,
-  "sma20": 176.9063,
-  "sma50": 179.2999,
-  "sma200": 183.255,
-  "trend": "下降トレンド",
-  "rsi14": 43.91,
+  "latest_date": "2026-11-03",
+  "price": 177.223,
+  "change_pct": 0.742,
+  "sma20": 176.8642,
+  "sma50": 179.1133,
+  "sma200": 183.2203,
+  "trend": "レンジ/方向感なし",
+  "rsi14": 48.45,
   "rsi_status": "中立",
-  "macd": -0.81225,
-  "macd_signal": -0.9224,
+  "macd": -0.75976,
+  "macd_signal": -0.90114,
   "macd_status": "強気(MACD > シグナル)",
-  "atr14": 1.3284,
-  "bollinger_upper": 178.3403,
-  "bollinger_lower": 175.4724,
+  "atr14": 1.236,
+  "bollinger_upper": 178.3664,
+  "bollinger_lower": 175.3619,
   "period_high_60d": 186.005,
-  "period_low_60d": 174.559,
+  "period_low_60d": 175.069,
   "recent_candles": [
-    {
-      "date": "2026-10-20",
-      "open": 177.767,
-      "high": 177.909,
-      "low": 177.16,
-      "close": 177.763
-    },
     {
       "date": "2026-10-21",
       "open": 177.68,
@@ -83,10 +76,17 @@
     },
     {
       "date": "2026-11-02",
-      "open": 175.65,
-      "high": 177.258,
-      "low": 174.559,
-      "close": 176.801
+      "open": 175.919,
+      "high": 177.239,
+      "low": 175.919,
+      "close": 175.918
+    },
+    {
+      "date": "2026-11-03",
+      "open": 176.656,
+      "high": 177.233,
+      "low": 176.512,
+      "close": 177.223
     }
   ]
 }
